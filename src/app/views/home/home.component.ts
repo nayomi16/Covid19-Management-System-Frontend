@@ -18,10 +18,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
     this.patientService.getTotalCount().subscribe((resp) => {
+      console.log(resp.data.discharged);
       this.activecases = resp.data.activecount;
       this.dischargedcount = resp.data.discharged;
       this.totalCount = (resp.data.activecount + resp.data.discharged);
-      console.log(resp.data);
+      // console.log(this.activecases,"kkk");
     });
   }
 
