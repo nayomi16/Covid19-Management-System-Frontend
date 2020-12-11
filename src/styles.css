@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, .5)),url(~src/app/images/corona.gif) ;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.boxstyle{
+  background-color: white;
+  text-align: center;
+  box-shadow: 0 0 4px 4px #888888 !important;
+  padding: 10px;
+  margin-right: 10px;
+}

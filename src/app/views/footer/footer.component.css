@@ -1,7 +1,7 @@
 footer{
 
   height: 39px;
-  background: linear-gradient(to right,#2F4554, #2F4554);
+  background: linear-gradient(to right,red ,#2F4554);
   box-shadow: 2px 2px 2px #000;
   opacity: 0.9;
   color: white;

@@ -8,20 +8,29 @@ import { FooterComponent } from './views/footer/footer.component';
 import {AppRoutingModule} from './app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {PatientRegComponent} from './views/patient-reg/patient-reg.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PatientResponseComponent } from './views/patient-response/patient-response.component';
+import { DoctorComponent } from './views/doctor/doctor.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PatientRegComponent,
+    PatientResponseComponent,
+    DoctorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
+
 
   ],
   providers: [],

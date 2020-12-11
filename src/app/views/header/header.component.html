@@ -1,12 +1,13 @@
 <header >
-  <p class="p-3 text-black" style="margin-left: 0px" routerLink="home">NCMS </p>
+  <p class="p-3 text-black" style="margin-left: 0px" routerLink="home">COVID19-MS </p>
   <nav >
 
     <ul>
-      <li routerLink="doctor" routerLinkActive="active">Doctor</li>
-      <li routerLink="moh" routerLinkActive="active">Moh</li>
-      <li routerLink="register" routerLinkActive="active">Register</li>
-      <li routerLink="login" routerLinkActive="active" *ngIf="!islogged; else a">Login</li>
+
+      <!--<li routerLink="doctor" routerLinkActive="active">Doctor</li>-->
+      <!--<li routerLink="moh" routerLinkActive="active">Moh</li>-->
+      <li routerLink="register" routerLinkActive="active" (click)="register()">PATIENT</li>
+      <li routerLink="login" routerLinkActive="active" *ngIf="!islogged; else a">STAFF</li>
       <ng-template #a>
         <li (click)="logout()" >Logout</li>
       </ng-template>

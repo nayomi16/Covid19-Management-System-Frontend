@@ -10,15 +10,19 @@ import {Subscription} from 'rxjs';
 export class HeaderComponent implements OnInit {
 
   islogged: boolean;
-  // clickEventsubscription: Subscription;
-  // constructor(private router: Router) {
-  //
-  //   // this.clickEventsubscription = this.sharedService.getClickEvent().subscribe(() => {
-  //   //   this.islogged = true;
-  //   // });
-  // }
+  clickEventsubscription: Subscription;
+  constructor(private router: Router) {
+
+    // this.clickEventsubscription = this.sharedService.getClickEvent().subscribe(() => {
+    //   this.islogged = true;
+    // });
+  }
 
   ngOnInit(): void {
+  }
+
+  register() {
+    this.router.navigate(['/register']);
   }
 
   logout() {

@@ -1,7 +1,7 @@
 header{
   width: 100%;
-  height: 70px;
-  background: linear-gradient(to right,#5D90B1 ,#2F4554);
+  height: 90px;
+  background: linear-gradient(to right,red ,#2F4554);
   /*background: transparent;*/
   /* background:  rgba(255, 0, 0, 0.4);*/
   opacity: 0.9;
@@ -45,6 +45,7 @@ header>nav>ul>li{
   padding: 20px;
   cursor: pointer;
   outline: none;
+  font-size: 25px;
 }
 header>nav>ul>li:hover{
   background-color: white;
@@ -55,5 +56,6 @@ header>nav>ul>li:hover{
 
 .active{
   color: #7abaff!important;
+  font-size: 25px;
 }
 
