@@ -12,6 +12,9 @@ import {PatientRegComponent} from './views/patient-reg/patient-reg.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PatientResponseComponent } from './views/patient-response/patient-response.component';
 import { DoctorComponent } from './views/doctor/doctor.component';
+import { LoginComponent } from './views/login/login.component';
+import { PatientComponent } from './views/patient/patient.component';
+
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { DoctorComponent } from './views/doctor/doctor.component';
     FooterComponent,
     PatientRegComponent,
     PatientResponseComponent,
-    DoctorComponent
+    DoctorComponent,
+    LoginComponent,
+    PatientComponent
+
   ],
   imports: [
     BrowserModule,
