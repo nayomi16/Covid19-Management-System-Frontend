@@ -21,7 +21,7 @@ export class PatientService {
   }
 
   update(patientId, doctorId, slevel, doctorRole): Observable<ResponseDto> {
-    return this.http.options<ResponseDto>( this.url + '?patientId=' + patientId + '&doctorId=' + doctorId + '&doctorRole=' + doctorRole + '&slevel=' + slevel );
+    return this.http.options<ResponseDto>( this.url + '?patientId=' + patientId + '&doctorId=' + doctorId  + '&slevel=' + slevel + '&doctorRole=' + doctorRole );
 
   }
 

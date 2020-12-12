@@ -14,6 +14,7 @@ import { PatientResponseComponent } from './views/patient-response/patient-respo
 import { DoctorComponent } from './views/doctor/doctor.component';
 import { LoginComponent } from './views/login/login.component';
 import { PatientComponent } from './views/patient/patient.component';
+import { MohComponent } from './views/moh/moh.component';
 
 
 
@@ -27,7 +28,8 @@ import { PatientComponent } from './views/patient/patient.component';
     PatientResponseComponent,
     DoctorComponent,
     LoginComponent,
-    PatientComponent
+    PatientComponent,
+    MohComponent
 
   ],
   imports: [
