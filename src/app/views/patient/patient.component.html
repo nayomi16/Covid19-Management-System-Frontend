@@ -1,0 +1,53 @@
+<section class="container">
+  <div class="row justify-content-center">
+    <div class="col-5 shadow-lg pt-5 pb-5 mt-3 boxstyle">
+      <h2>{{name}}</h2>
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <h5>Patient Id : {{patientId}}</h5>
+          <h5>Age : {{age}}</h5>
+          <h5>ContactNo : {{contactNo}}</h5>
+          <h5>District : {{district}}</h5>
+          <div *ngIf="noSet">
+            <h5>Severity Level: {{sLevel}}</h5>
+            <h5>Hospital : {{hospital}}</h5>
+            <h5>BedNo : {{bedId}}</h5>
+            <h5>Admitted Date: {{admit_date}}</h5>
+            <h5>Admitted By : {{admitted_by}}</h5>
+          </div>
+
+          <br>
+          <div *ngIf="queueVisible">
+            <h4>You are still in the queue.. Please Wait!!</h4>
+            <br>
+            <h5>Queue No : {{qnumber}}</h5>
+            <br>
+            <p>More details : 0712345678</p>
+          </div>
+          <br>
+
+          <form [formGroup]="form" *ngIf="visible">
+            <div class="form-group  pr-2 pl-2">
+              <label for="slevel">Severity Level</label>
+              <select class="form-control" formControlName="slevel" id="slevel" name="slevel" type="text">
+                <option>Low</option>
+                <option>Moderate</option>
+                <option>Critical</option>
+              </select>
+              <div class="alert bg-danger text-white" *ngIf="!slevel.valid && slevel.touched">
+                <div *ngIf="slevel.errors.required">required to fill</div>
+              </div>
+              <br>
+              <div class="btn-group pl-2">
+                <button (click)="admit()" class="btn btn-primary">Admit</button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
+</section>

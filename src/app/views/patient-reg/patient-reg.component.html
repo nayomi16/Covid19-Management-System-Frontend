@@ -1,0 +1,99 @@
+<section  class="container">
+  <div class="row justify-content-center" >
+    <div class="col-8 shadow-lg pt-5 pb-5 mt-3 boxstyle" style="background-color: cornflowerblue">
+      <h3>Register to the System</h3>
+      <form  [formGroup]="form">
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group  pr-2 pl-2">
+              <label for="firstName">First Name</label>
+              <input class="form-control" formControlName="firstName" id="firstName" name="username" type="text">
+              <div class="alert bg-danger text-white"*ngIf="!firstName.valid && firstName.touched">
+                <div *ngIf="firstName.errors.required">required to fill</div>
+                <div *ngIf="firstName.errors.pattern">pattern is wrong</div>
+              </div>
+            </div>
+            <div class="form-group  pr-2 pl-2">
+              <label for="lastName">Last Name</label>
+              <input class="form-control" formControlName="lastName" id="lastName" name="lastName" type="text">
+              <div class="alert bg-danger text-white" *ngIf="!lastName.valid && lastName.touched">
+                <div *ngIf="lastName.errors.required">required to fill</div>
+                <div *ngIf="lastName.errors.pattern">pattern is wrong</div>
+              </div>
+            </div>
+            <div class="form-group  pr-2 pl-2">
+              <label for="age">Age</label>
+              <input class="form-control" formControlName="age" id="age" name="" type="text">
+              <div class="alert bg-danger text-white" *ngIf="!age.valid && age.touched">
+                <div *ngIf="age.errors.required">required to fill</div>
+                <div *ngIf="age.errors.pattern">Wrong Age</div>
+              </div>
+            </div>
+            <div class="form-group  pr-2 pl-2">
+              <label for="gender">Gender</label>
+              <select class="form-control" formControlName="gender" id="gender" name="gender" type="text">
+                <option>male</option>
+                <option>female</option>
+              </select>
+              <div class="alert bg-danger text-white" *ngIf="!gender.valid && gender.touched">
+                <div *ngIf="gender.errors.required">required to fill</div>
+              </div>
+            </div>
+            <div class="form-group  pr-2 pl-2">
+              <label for="district">District</label>
+              <select class="form-control" formControlName="district" id="district" name="district" type="text">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+                <option>E</option>
+              </select>
+              <div class="alert bg-danger text-white" *ngIf="!district.valid && district.touched">
+                <div *ngIf="district.errors.required">required to fill</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group  pr-2 pl-2">
+              <label for="contactNo">Contact No</label>
+              <input class="form-control" placeholder="0717777777" formControlName="contactNo" id="contactNo" name="contactNo" type="text">
+              <div class="alert bg-danger text-white" *ngIf="!contactNo.valid && contactNo.touched">
+                <div *ngIf="contactNo.errors.required">required to fill</div>
+                <div *ngIf="contactNo.errors.pattern">Wrong number pattern</div>
+              </div>
+            </div>
+            <div class="form-group  pr-2 pl-2">
+              <label for="email">email</label>
+              <input class="form-control" placeholder="kamal@gmail.com" formControlName="email" id="email" name="email" type="email">
+              <div class="alert bg-danger text-white" *ngIf="!email.valid && email.touched">
+                <div *ngIf="email.errors.required">required to fill</div>
+                <div *ngIf="email.errors.pattern">Wrong email</div>
+              </div>
+            </div>
+            <div class="form-group  pr-2 pl-2">
+              <label for="locationX">location X</label>
+              <input class="form-control" formControlName="locationX" id="locationX" name="locationX" type="text">
+              <div class="alert bg-danger text-white" *ngIf="!locationX.valid && locationX.touched">
+                <div *ngIf="locationX.errors.required">required to fill</div>
+                <div *ngIf="locationX.errors.pattern">Wrong value</div>
+              </div>
+            </div>
+            <div class="form-group  pr-2 pl-2">
+              <label for="locationY">location Y</label>
+              <input class="form-control" formControlName="locationY" id="locationY" name="locationY" type="text">
+              <div class="alert bg-danger text-white" *ngIf="!locationY.valid && locationY.touched">
+                <div *ngIf="locationY.errors.required">required to fill</div>
+                <div *ngIf="locationY.errors.pattern">Wrong value</div>
+              </div>
+            </div>
+            <div class="btn-group pl-2">
+              <button (click)="register()" class="btn btn-primary">Register</button>
+              <button (click)="registered()" class="btn btn-primary">Already Registered</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+<section class="container">
+  <div class="row justify-content-center">
+    <div class="col-5 shadow-lg pt-5 pb-5 mt-3 boxstyle" style="background-color: #7abaff" *ngIf="bedAvailablility; else a" >
+      <h2>Thank You!!</h2>
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <h5>Your Serial Number : {{serialNo}}</h5>
+          <h5>Your Hospital : {{hospitalName}}</h5>
+          <h5>Your Bed Number : {{bedNo}}</h5>
+        </div>
+      </div>
+      <br>
+      <p>Dear patient.. We will come to take you to the hospital soon. Until then, stay safe.</p>
+      <br>
+      <p>More details : 0715555555</p>
+    </div>
+
+    <ng-template #a>
+      <div class="col-5 shadow-lg pt-5 pb-5 mt-3 boxstyle">
+        <h2>Thank You!!</h2>
+        <br>
+        <div class="row">
+          <div class="col-12">
+            <h5>Your Serial Number : {{serialNo}}</h5>
+            <h5>Queue Number : {{queueNo}}</h5>
+          </div>
+        </div>
+        <br>
+        <p>Dear patient.. Currenly all the hospitals are full of beds. So we will let you know as soon as a bed is empty. Until then, stay safe.</p>
+        <br>
+        <p>More details : 0715555555</p>
+      </div>
+    </ng-template>
+  </div>
+</section>

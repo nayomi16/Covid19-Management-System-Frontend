@@ -1,0 +1,185 @@
+<section class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2 sidebar">
+      <ul>
+        <li (click)="hospitalList()" [ngClass]="{'active': hospitalState}">All Hospitals</li>
+        <li (click)="doctorList()"[ngClass]="{'active': doctorState}">All Doctors</li>
+        <li (click)="patientList()"[ngClass]="{'active': patientState}">All Patients</li>
+        <li (click)="queueDetails()"[ngClass]="{'active': queueState}">Queue Details</li>
+        <!--<li routerLink="item" routerLinkActive="active">Admitted patients</li>
+        <li routerLink="orders" routerLinkActive="active">Orders</li>-->
+      </ul>
+    </div>
+    <div class="col-sm-10 shadow-lg pt-5 pb-5 mohblock " style="background-color: white" *ngIf="hospitalState">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Name</th>
+          <th scope="col">District</th>
+          <th scope="col">Available Beds</th>
+          <th scope="col">Location_X</th>
+          <th scope="col">Location_Y</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let b of hospitalDetails">
+          <td>{{b.hosId}}</td>
+          <td>{{b.name}}</td>
+          <td>{{b.district}}</td>
+          <td>{{b.availableBedCount}}</td>
+          <td>{{b.locationX}}</td>
+          <td>{{b.locationY}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="row justify-content-center">
+        <button type="button" class="btn btn-primary " style="outline: none" (click)="hospitalAdd()">Add new hospital
+        </button>
+      </div>
+    </div>
+
+    <div class="col-sm-10 shadow-lg pt-5 pb-5 mohblock" style="background-color: white" *ngIf="doctorState">
+
+      <br>
+      <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Hospital</th>
+          <th scope="col">Director</th>
+          <th scope="col">Email</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr *ngFor="let b of alldoctorList">
+          <td>{{b.id}}</td>
+          <td>{{b.name}}</td>
+          <td>{{b.hospitalId}}</td>
+          <td>{{b.director}}</td>
+          <td>{{b.email}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="row  justify-content-center">
+        <button type="button" class="btn btn-primary"
+                style="outline: none"
+                (click)="addDoctor()">Add new Doctor
+        </button>
+      </div>
+    </div>
+
+    <div class="col-sm-10 shadow-lg pt-5 pb-5 mohblock" style="background-color: white" *ngIf="queueState">
+      <h1>Queue Details </h1>
+
+      <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">PatientId</th>
+          <th scope="col">QueueNo</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let c of queue" (click)="viewPatient(c.patientId)">
+          <td>{{c.patientId}}</td>
+          <td>{{c.queueId}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <br>
+      <p style="color: red" *ngIf="visibleButton">Queue is full.. Please add a new hospital..!!</p>
+    </div>
+
+    <div class="col-sm-10 shadow-lg pt-5 pb-5 " style="background-color: white" *ngIf="patientState">
+      <h1>Patient List(Active Patients)</h1>
+
+      <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">PatientId</th>
+          <th scope="col">Name</th>
+          <th scope="col">Age</th>
+          <th scope="col">District</th>
+          <th scope="col">ContactNo</th>
+          <th scope="col">Hospital</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let b of patientlist">
+          <td>{{b.patientId}}</td>
+          <td>{{b.firstName}}</td>
+          <td>{{b.age}}</td>
+          <td>{{b.district}}</td>
+          <td>{{b.contactNo}}</td>
+          <td>{{b.hospitalId}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="col-sm-10 shadow-lg pt-5 pb-5  mohblock" style="background-color: white" *ngIf="doctorAddState">
+      <form [formGroup]="form">
+        <div class="row justify-content-center">
+          <div class="form-group  pr-2 pl-2">
+            <label for="user_name">Doctor Id</label>
+            <input class="form-control" placeholder="D009" formControlName="user_name" id="user_name" name="user_name" type="text">
+            <div class="alert bg-danger text-white" *ngIf="!user_name.valid && user_name.touched">
+              <div *ngIf="user_name.errors.required">required to fill</div>
+              <div *ngIf="user_name.errors.pattern">pattern is wrong</div>
+            </div>
+          </div>
+          <div class="form-group  pr-2 pl-2">
+            <label for="name">Name</label>
+            <input class="form-control" formControlName="name" id="name" name="name" type="text">
+            <div class="alert bg-danger text-white" *ngIf="!name.valid && name.touched">
+              <div *ngIf="name.errors.required">required to fill</div>
+              <div *ngIf="name.errors.pattern">pattern is wrong</div>
+            </div>
+          </div>
+          <div class="form-group  pr-2 pl-2">
+            <label for="hospital_id">Hospital</label>
+            <select class="form-control" formControlName="hospital_id" id="hospital_id" name="hospital_id" type="text">
+              <option>H001</option>
+              <option>H002</option>
+              <option>H003</option>
+              <option>H004</option>
+              <option>H005</option>
+            </select>
+            <div class="alert bg-danger text-white" *ngIf="!hospital_id.valid && hospital_id.touched">
+              <div *ngIf="hospital_id.errors.required">required to fill</div>
+              <div *ngIf="hospital_id.errors.pattern">pattern is wrong</div>
+            </div>
+          </div>
+
+          <div class="form-group  pr-2 pl-2">
+            <label for="email">Email</label>
+            <input class="form-control" placeholder="xxxxx@gmail.com" formControlName="email" id="email" name="email" type="text">
+            <div class="alert bg-danger text-white" *ngIf="!email.valid && email.touched">
+              <div *ngIf="email.errors.required">required to fill</div>
+              <!--<div *ngIf="contactNo.errors.pattern">pattern is wrong</div>-->
+            </div>
+          </div>
+
+          <div class="form-group  pr-2 pl-2">
+            <p>Director</p>
+            <input type="radio" value="true" formControlName="isDirector">Yes
+            <input type="radio" value="false" formControlName="isDirector">No
+          </div>
+          <div class="alert bg-danger text-white" *ngIf="!isDirector.valid && isDirector.touched">
+            <div *ngIf="isDirector.errors.required">Gender required</div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="btn-group pl-2">
+            <button (click)="saveDoctor()" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
