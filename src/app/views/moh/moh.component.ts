@@ -135,7 +135,7 @@ export class MohComponent implements OnInit {
 
     this.patientService.patientGetAll().subscribe((resp) => {
       this.patientlist = resp.data;
-      console.log(this.patientlist);
+      console.log(resp.data);
     });
     this.doctorState = false;
     this.queueState = false;

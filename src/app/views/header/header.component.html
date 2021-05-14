@@ -6,8 +6,8 @@
 
       <!--<li routerLink="doctor" routerLinkActive="active">Doctor</li>-->
       <!--<li routerLink="moh" routerLinkActive="active">Moh</li>-->
-      <li routerLink="register" routerLinkActive="active" (click)="register()">PATIENT</li>
-      <li routerLink="login" routerLinkActive="active" (click)="login()" *ngIf="!islogged; else a">STAFF</li>
+      <li routerLink="register" routerLinkActive="active" (click)="register()">REGISTER PATIENT</li>
+      <li routerLink="login" routerLinkActive="active" (click)="login()" *ngIf="!islogged; else a">LOGIN</li>
       <ng-template #a>
         <li (click)="logout()" >Logout</li>
       </ng-template>
